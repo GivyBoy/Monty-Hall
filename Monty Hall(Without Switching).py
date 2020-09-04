@@ -9,14 +9,16 @@ if 1 <= a <= 3:
 else:
     print('Choose a number from 1 to 3')
 
+iterations = 10000
 count = 0
-for i in range(10000):
+for i in range(iterations):
     prize = randint(1, 3)
     if prize == 1:
         s = randint(2, 3)
         doors = prize, s
     elif prize == 2:
-        q = randint(1, 3)
+        possible_doors = [1, 3]
+        q = choice(possible_doors)
         doors = q, prize
     else:
         v = randint(1, 2)
@@ -24,6 +26,6 @@ for i in range(10000):
     if a == prize:
         count = count + 1
 
-percent = (count / 10000)*100
+percent = (count / iterations)*100
 
 print(f'Congrats! You won percent {percent}% of the time.')
